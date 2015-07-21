@@ -1,17 +1,7 @@
 new Vue({
-	el: '#demo',
+	el: '#post',
 	data: {
-		name: 'foobar'
-	},
-
-	ready: function(){
-
-		var that = this;
-
-		setInterval(function(){
-			that.name = 'Updated';
-		}, 5000);
+		isVisible = true
 	}
-
 	
 })
