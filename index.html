@@ -5,9 +5,26 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/app.css">
 </head>
-<body>
+<body id="demo" class="container">
 
-	
+	<input class="form-control" type="text" v-model="search">
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th v-repeat="column: columns">
+					<a href="#" v-on="click: sortBy(column)" v-class="active: sortKey == column">	{{ column | capitalize }}
+					</a>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr v-repeat="people | filterBy search | orderBy sortKey reverse">
+				<td>{{ name }}</td>
+				<td>{{ age }}</td>
+			</tr>
+		</tbody>
+	</table>
 
 
 	<script src="js/vue.js"></script>
